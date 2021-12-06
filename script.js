@@ -11,28 +11,28 @@ let modal = {
   window.addEventListener("DOMContentLoaded", function(event){
     modal["showbutton"] = document.getElementById("showbutton");
     modal["wrapper"] = document.getElementById("wrapper");
-    modal["closeX"] = document.getElementById("close"); //çàêðûòèå X
+    modal["closeX"] = document.getElementById("close"); //Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ X
     modal["fields"] = document.querySelectorAll(".fields");
     modal["submitButton"] = document.getElementById("submitbutton");
     modal["postForm"] = document.getElementById("contact");
-    modal.fields.forEach((element) => {   //ðåàëèçàöèÿ ëîêàëüíîãî õðàíèëèùà
+    modal.fields.forEach((element) => {   //Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ñ…Ñ€Ð°Ð½Ð¸Ð»Ð¸Ñ‰Ð°
         element.value = localStorage.getItem(element.name);
         element.addEventListener("blur",
         (event)=>localStorage.setItem(event.target.name, event.target.value));
     });
     modal.closeX.addEventListener("click",modal.closeModal);
     modal.showbutton.onclick = modal.openModal;
-    window.onclick = function(event) { //çàêðûòèå îêíà ïðè íàæàòèè çà åãî ïðåäåëàìè
+    window.onclick = function(event) { //Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ð¾ÐºÐ½Ð° Ð¿Ñ€Ð¸ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ð¸ Ð·Ð° ÐµÐ³Ð¾ Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ð¼Ð¸
     if(event.target === modal.wrapper)
     {
      modal.closeModal();
     }
     };
-    window.history.pushState({"formtoggle": false},"","index.html"); //èñòîðèÿ API ðåàëèçàöèè
+    window.history.pushState({"formtoggle": false},"","index.html"); //Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ñ API Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸
     window.addEventListener("popstate",(event) => {
     (event.state.formtoggle)? (modal.wrapper.style.display = "flex") : (modal.wrapper.style.display = "none");
     });
-    window.addEventListener("keydown",function(event){ //çàêðûòèå îêíà ïðè íàæàòèè êëàâèøè Esc
+    window.addEventListener("keydown",function(event){ //Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ð¾ÐºÐ½Ð° Ð¿Ñ€Ð¸ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ð¸ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸ Esc
         if(modal.wrapper.style.display!=="none")
         {
             switch(event.key){
@@ -65,9 +65,9 @@ let modal = {
             }
             return response;
         })
-        .then((response)=>{alert("Ôîðìà îòïðàâëåíà!");
+        .then((response)=>{alert("Ð¤Ð¾Ñ€Ð¼Ð° Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð°!");
             console.log(response.text());})
-        .catch((error)=>{alert("Îøèáêà!");
+        .catch((error)=>{alert("ÐžÑˆÐ¸Ð±ÐºÐ°!");
             console.log(error);});
         modal.fields.forEach((element) => {element.value = "";});
         localStorage.clear();
