@@ -48,7 +48,7 @@ let modal = {
     {(event.target.checked)? (modal.submitButton.disabled=false) : (modal.submitButton.disabled=true);});
     modal.postForm.addEventListener("submit", function(event){  //AJAX USING FETCH
         event.preventDefault();
-        fetch("https://formcarry.com/s/eYxQcqgpgEQ",
+        fetch("https://formcarry.com/s/1yBZdYOm92a",
         {
             method:"POST",
             headers:
